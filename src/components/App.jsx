@@ -1,28 +1,26 @@
 import React from "react";
 import Card from "./Card";
 import contactList from "../contactList";
+import Avatar from "./Avatar";
+
+function createCard(contact){
+    return <Card 
+    key={contact.id}
+    id={contact.id}
+    name={contact.name}
+    img={contact.imgURL}
+    phone={contact.phone}
+    email={contact.email}
+    />
+}
 
 function App() {
     return <div>
         <h1 className="heading">My Contacts</h1>
-        <Card 
-        name={contactList[0].name}
-        img={contactList[0].imgURl}
-        phone={contactList[0].phone}
-        email={contactList[0].email}
+        <Avatar 
+        img="https://m.media-amazon.com/images/M/MV5BOGJmZDUwMzktYmY2MS00M2IwLWIyNmQtYjJhYjc4NjIyZWM1XkEyXkFqcGdeQXVyMTE1MTYxNDAw._V1_FMjpg_UX1000_.jpg"
         />
-        <Card 
-        name={contactList[1].name}
-        img={contactList[1].imgURl}
-        phone={contactList[1].phone}
-        email={contactList[1].email}
-        />
-        <Card 
-        name={contactList[2].name}
-        img={contactList[2].imgURl}
-        phone={contactList[2].phone}
-        email={contactList[2].email}
-        />
+        {contactList.map(createCard)}
     </div>
 }
 
